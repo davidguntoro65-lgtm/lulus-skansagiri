@@ -1,4 +1,4 @@
-modules = ["nodejs-20", "php-8.2", "web"]
+modules = ["nodejs-20", "php-8.2", "web", "postgresql-16"]
 [agent]
 expertMode = true
 stack = "BEST_EFFORT_FALLBACK"
@@ -38,3 +38,8 @@ externalPort = 80
 deploymentTarget = "autoscale"
 run = ["node", "app.js"]
 build = ["npm", "run", "build"]
+
+[userenv]
+
+[userenv.shared]
+NODE_ENV = "production"
