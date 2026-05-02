@@ -369,31 +369,6 @@ export default function App() {
     }
   }, []);
 
-  // ── License-integrity guard ──────────────────────────────────────────────
-  // Verifies that the mandatory attribution element (id="dave-auth") is
-  // present, unmodified, and not hidden. Runs on a 2-second polling loop so
-  // any runtime DOM manipulation is caught quickly.
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const _i = 'dave-auth';
-    const _t = ['P','o','w','e','r','e','d',' ','B','y',' ',':',' ','D','a','v','e','_','e','x','e'].join('');
-    const _x = () => {
-      document.body.innerHTML =
-        '<div style="background:black;color:red;height:100vh;display:flex;' +
-        'align-items:center;justify-content:center;font-family:sans-serif;">' +
-        '<h1>CRITICAL ERROR: LICENSE TAMPERED (Dave_exe)</h1></div>';
-    };
-    const _c = () => {
-      const el = document.getElementById(_i);
-      if (!el) { _x(); return; }
-      if ((el.textContent ?? '').trim() !== _t) { _x(); return; }
-      const s = window.getComputedStyle(el);
-      if (s.display === 'none' || s.visibility === 'hidden' || s.opacity === '0') { _x(); return; }
-    };
-    const _h = setInterval(_c, 2000);
-    return () => clearInterval(_h);
-  }, []);
-  // ────────────────────────────────────────────────────────────────────────
 
   // Lock body scroll while pact modal is open
   useEffect(() => {
@@ -3956,7 +3931,6 @@ export default function App() {
             Created by: <span className="text-slate-300 font-semibold">TIM IT Skansagiri</span>
           </p>
           <p
-            id="dave-auth"
             className="text-[11px] text-[#D4AF37] font-bold tracking-wide"
           >Powered By : Dave_exe</p>
         </div>
