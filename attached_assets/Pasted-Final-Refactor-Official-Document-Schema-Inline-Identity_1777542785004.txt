@@ -1,0 +1,50 @@
+Final Refactor - Official Document Schema & Inline Identity
+Role: Senior Full-stack Developer (Laravel 11 & React Expert)
+
+Context:
+
+"Saya melakukan pembaruan skema data final untuk Aplikasi Kelulusan SMKN 1 Wonogiri 2026. Fokus utama adalah kelengkapan data biodata dan estetika tampilan hasil kelulusan yang menyerupai dokumen resmi."
+
+1. Database Migration & Model (Backend):
+
+Update tabel students dengan field wajib: nisn, name, birth_place, birth_date, class, major (Konsentrasi Keahlian), dan status_graduation.
+
+Pada Model Student.php, pastikan ada casting/accessor untuk menggabungkan birth_place dan birth_date menjadi satu string format: 'Wonogiri, 26 Mei 2008'.
+
+2. Admin Module (Import & Data Management):
+
+Template Excel Baru: Kolom wajib: nisn, name, birth_place, birth_date, class, major, status.
+
+Import Logic: Perkuat fungsi Carbon untuk mengubah input tanggal apa pun dari Excel menjadi format database, namun pastikan saat dikirim ke Frontend, bulan sudah terkonversi menjadi teks (Januari, Februari, dst).
+
+Admin UI: Tambahkan kolom 'Kelas' dan 'Konsentrasi Keahlian' pada tabel manajemen siswa agar Admin mudah memantau persebaran data.
+
+3. Frontend Student Portal (The "Prestige" Result Card):
+
+Inline Identity Display: Pada bagian biodata hasil kelulusan, tampilkan Tempat dan Tanggal Lahir dalam satu baris dengan format: {birth_place}, {formatted_birth_date}. Contoh: Wonogiri, 26 Mei 2008.
+
+Layout Kartu Hasil: * Gunakan font yang tegas dan bersih (seperti Inter atau Montserrat).
+
+Susunan Biodata:
+
+Nama Lengkap (Upppercase/Bold)
+
+NISN
+
+Tempat, Tanggal Lahir (Sesuai instruksi: Sebaris)
+
+Kelas
+
+Konsentrasi Keahlian
+
+Status Badge: Status "LULUS" harus tampil dengan desain stempel digital (Official Stamp Look) di atas watermark 'SKANSAGIRI'.
+
+4. Global Integration & Branding:
+
+Pastikan Header tetap menampilkan Logo Sekolah yang diupload dari menu Pengaturan.
+
+Footer tetap konsisten: 'Created by: TIM IT SKANSAGIRI | Powered by: Joben Enterprise'.
+
+Output:
+
+"Berikan update kode lengkap untuk file Migration, Student Model (dengan Accessor), Admin Controller (Import), dan Component Result Card di Frontend."

@@ -1,0 +1,518 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* ----------------------------------------------------------
+   Premium Helpdesk Theme — JatengProv-inspired
+   Deep Navy (#0F172A) · Royal Blue (#1D4ED8) · Premium Gold (#D4AF37)
+   Serif headlines (Playfair Display) · Sans body (Inter / Montserrat)
+   ---------------------------------------------------------- */
+@theme {
+  --font-sans: "Inter", "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", "Times New Roman", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-navy: #0F172A;
+  --color-brand-navy-2: #111B33;
+  --color-brand-navy-3: #1E293B;
+  --color-brand-primary: #1D4ED8;
+  --color-brand-primary-dark: #1E40AF;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-soft: #E9C76B;
+  --color-brand-ink: #1A1A1A;
+  --color-brand-muted: #6B7280;
+  --color-brand-surface: #F8FAFC;
+  --color-brand-border: #E5E7EB;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-[#1A1A1A] font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+  }
+  .font-serif-display {
+    font-family: var(--font-serif);
+    font-feature-settings: "liga", "dlig";
+  }
+}
+
+@layer components {
+  /* -------- CARDS -------- */
+  /* Default card — clean white with thin navy hairline border */
+  .quantum-card {
+    @apply bg-white border border-[#E2E8F0] rounded-2xl;
+    box-shadow:
+      0 1px 2px 0 rgba(15, 23, 42, 0.04),
+      0 12px 32px -12px rgba(15, 23, 42, 0.10);
+  }
+
+  .quantum-card-floating {
+    @apply bg-white border border-[#E2E8F0] rounded-2xl;
+    box-shadow:
+      0 1px 2px 0 rgba(15, 23, 42, 0.05),
+      0 30px 70px -20px rgba(15, 23, 42, 0.22),
+      0 10px 28px -14px rgba(29, 78, 216, 0.18);
+  }
+
+  /* -------- BUTTONS -------- */
+  /* Primary Royal Blue button — micro hover lift */
+  .quantum-button {
+    @apply bg-[#1D4ED8] text-white py-4 rounded-xl font-bold tracking-wide text-sm
+           hover:bg-[#1E40AF] transition-all active:scale-[0.98] disabled:opacity-50
+           shadow-[0_8px_22px_-8px_rgba(29,78,216,0.55)];
+  }
+  .quantum-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px -10px rgba(29, 78, 216, 0.55);
+  }
+
+  /* White ghost button — used for navbar Admin Login on dark backgrounds */
+  .quantum-button-ghost {
+    @apply bg-white border border-[#E2E8F0] text-[#1A1A1A] py-4 rounded-xl font-semibold tracking-wide text-sm
+           hover:bg-[#F8FAFC] hover:border-[#CBD5E1] transition-all active:scale-[0.98] disabled:opacity-50;
+  }
+
+  .ghost-on-dark {
+    @apply bg-transparent border border-white/30 text-white px-4 py-2 rounded-xl
+           text-[12px] font-semibold tracking-wide uppercase
+           hover:bg-white hover:text-[#0F172A] hover:border-white
+           transition-all active:scale-[0.98] flex items-center gap-2;
+  }
+
+  /* Premium Gold pill — countdown / accent */
+  .gold-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full
+           text-[10px] font-bold uppercase tracking-[0.18em];
+    background: rgba(212, 175, 55, 0.12);
+    color: #D4AF37;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+  }
+
+  /* -------- BADGES -------- */
+  .feature-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full
+           bg-[#EFF4FF] text-[#1D4ED8] text-[10px] font-bold uppercase tracking-wider
+           border border-[#DBEAFE];
+  }
+
+  /* -------- INPUTS -------- */
+  .quantum-input {
+    @apply w-full pl-12 pr-4 py-3.5 bg-white border border-[#E2E8F0] rounded-xl
+           text-[15px] text-[#1A1A1A] placeholder:text-[#94A3B8]
+           focus:border-[#1D4ED8] focus:ring-4 focus:ring-[#1D4ED8]/10
+           transition-all outline-none;
+  }
+
+  /* -------- ADMIN SIDEBAR -------- */
+  .admin-sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all cursor-pointer
+           text-slate-400 hover:bg-white/5 hover:text-white font-medium text-sm;
+  }
+  .admin-sidebar-item-active {
+    @apply bg-[#1D4ED8] text-white font-semibold
+           shadow-[0_8px_20px_-8px_rgba(29,78,216,0.6)];
+  }
+
+  /* -------- ADMIN TABLES -------- */
+  .admin-table-header {
+    @apply px-6 py-4 text-left text-[10px] font-bold uppercase tracking-widest text-[#64748B]
+           border-b border-[#E2E8F0] bg-[#F8FAFC];
+  }
+  .admin-table-row {
+    @apply border-b border-[#F1F5F9] hover:bg-[#F8FAFC] transition-colors;
+  }
+
+  /* -------- SETTINGS INPUT -------- */
+  .settings-input {
+    @apply w-full px-4 py-3.5 bg-white border border-[#E2E8F0] rounded-xl
+           text-[15px] font-medium text-[#1A1A1A]
+           focus:border-[#1D4ED8] focus:ring-4 focus:ring-[#1D4ED8]/10
+           transition-all outline-none;
+  }
+
+  /* -------- MODULE CARD (Principal / Motivation) -------- */
+  .module-card-blue {
+    @apply bg-white border border-[#0F172A]/15 rounded-2xl p-6
+           shadow-[0_1px_2px_0_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)];
+  }
+
+  /* -------- HERO (Deep Gradient Navy → Royal Blue) -------- */
+  .premium-hero {
+    background:
+      radial-gradient(ellipse at top right, rgba(29, 78, 216, 0.45) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom left, rgba(212, 175, 55, 0.10) 0%, transparent 55%),
+      linear-gradient(135deg, #0F172A 0%, #111B33 45%, #1E3A8A 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .premium-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    pointer-events: none;
+  }
+  .premium-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 18% 22%, rgba(255,255,255,0.05) 0, transparent 1.5px),
+      radial-gradient(circle at 82% 70%, rgba(212,175,55,0.18) 0, transparent 2px),
+      radial-gradient(circle at 60% 30%, rgba(255,255,255,0.06) 0, transparent 1.5px);
+    background-size: 240px 240px;
+    pointer-events: none;
+  }
+
+  /* Navbar deep navy */
+  .premium-nav {
+    background: linear-gradient(180deg, #0F172A 0%, #111B33 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* -------- COUNTDOWN FOOTER (Deep Navy + Gold numbers) -------- */
+  .premium-countdown {
+    background:
+      radial-gradient(ellipse at center, rgba(29, 78, 216, 0.18) 0%, transparent 60%),
+      linear-gradient(180deg, #0B1220 0%, #0F172A 100%);
+    border-top: 1px solid rgba(212, 175, 55, 0.22);
+  }
+  .gold-number {
+    color: #D4AF37;
+    font-family: var(--font-serif);
+    text-shadow: 0 2px 12px rgba(212, 175, 55, 0.35);
+    letter-spacing: -0.02em;
+  }
+
+  /* Subtle pulse for countdown */
+  .quantum-pulse {
+    animation: quantum-pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes quantum-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.78; }
+  }
+
+  /* ========================================================
+     QUANTUM COUNTDOWN BOX — Royal Blue → Deep Navy gradient
+     ======================================================== */
+  .quantum-countdown-box {
+    position: relative;
+    border-radius: 16px;
+    /* Live diagonal gradient: Royal Blue (top-left) → Deep Navy (bottom-right) */
+    background: linear-gradient(135deg, #1D4ED8 0%, #1E3A8A 45%, #0F172A 100%);
+    /* 1px crisp light-blue hairline border */
+    border: 1px solid rgba(147, 197, 253, 0.28);
+    /* Inner soft highlight + subtle royal-blue floating shadow */
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.10),
+      inset 0 -10px 24px -8px rgba(15, 23, 42, 0.55),
+      0 12px 28px -10px rgba(29, 78, 216, 0.45),
+      0 4px 10px -4px rgba(15, 23, 42, 0.35);
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  /* Soft top-left specular highlight to make the gradient feel alive */
+  .quantum-countdown-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      120% 90% at 0% 0%,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.04) 28%,
+      transparent 55%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* Border-glow pulse layer — rides on top of the border */
+  .quantum-countdown-box::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    border: 1px solid rgba(96, 165, 250, 0.55);
+    pointer-events: none;
+    z-index: 1;
+    animation: quantum-border-glow 2.6s ease-in-out infinite;
+    opacity: 0.6;
+  }
+  .quantum-countdown-box > * {
+    position: relative;
+    z-index: 2;
+  }
+  @keyframes quantum-border-glow {
+    0%, 100% {
+      box-shadow:
+        0 0 0 0 rgba(59, 130, 246, 0.0),
+        inset 0 0 0 0 rgba(96, 165, 250, 0.0);
+      opacity: 0.35;
+    }
+    50% {
+      box-shadow:
+        0 0 18px 2px rgba(59, 130, 246, 0.45),
+        inset 0 0 12px 0 rgba(147, 197, 253, 0.18);
+      opacity: 0.85;
+    }
+  }
+
+  /* Number digit — sans-serif tebal, blur-in saat berubah */
+  .quantum-countdown-digit {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    text-shadow:
+      0 2px 6px rgba(15, 23, 42, 0.55),
+      0 0 18px rgba(212, 175, 55, 0.25);
+    font-variant-numeric: tabular-nums;
+    animation: quantum-digit-blur 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes quantum-digit-blur {
+    0% {
+      filter: blur(6px);
+      opacity: 0;
+      transform: translateY(-3px);
+    }
+    100% {
+      filter: blur(0);
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Label di bawah angka — White-Slate kecil */
+  .quantum-countdown-label {
+    color: #E2E8F0;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 0.28em;
+  }
+
+  /* ---- Tick sparks: 3 tiny white particles per digit change ---- */
+  .quantum-spark-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: inherit;
+    z-index: 1;
+  }
+  .quantum-spark {
+    position: absolute;
+    bottom: 18%;
+    width: 3px;
+    height: 3px;
+    border-radius: 9999px;
+    background: #FFFFFF;
+    box-shadow:
+      0 0 6px rgba(255, 255, 255, 0.9),
+      0 0 12px rgba(212, 175, 55, 0.55);
+    opacity: 0;
+    animation: quantum-spark-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .quantum-spark.s1 { left: 28%; animation-delay: 0ms; }
+  .quantum-spark.s2 { left: 52%; animation-delay: 70ms; }
+  .quantum-spark.s3 { left: 72%; animation-delay: 140ms; }
+  @keyframes quantum-spark-rise {
+    0% {
+      opacity: 0;
+      transform: translateY(0) scale(0.6);
+    }
+    25% {
+      opacity: 1;
+      transform: translateY(-6px) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-22px) scale(0.4);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .quantum-countdown-box::after { animation: none; opacity: 0.5; }
+    .quantum-countdown-digit { animation: none; }
+    .quantum-spark { display: none; }
+  }
+}
+
+/* -------- WATERMARK BEHIND RESULT CARD -------- */
+.watermark-text {
+  @apply absolute inset-0 flex items-center justify-center text-[#0F172A] font-extrabold text-[12vw]
+         select-none pointer-events-none opacity-[0.035] rotate-[-12deg] z-0;
+  font-family: var(--font-serif);
+  letter-spacing: -0.04em;
+}
+
+/* ----------------------------------------------------------
+   Official "LULUS" digital stamp — Royal Blue accent
+   ---------------------------------------------------------- */
+.official-stamp {
+  font-family: var(--font-serif);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 200px;
+  height: 200px;
+  border-radius: 9999px;
+  border: 6px double currentColor;
+  color: #047857;
+  background: rgba(16, 185, 129, 0.04);
+  transform: rotate(-12deg);
+  box-shadow:
+    inset 0 0 0 3px rgba(4, 120, 87, 0.15),
+    0 8px 24px rgba(4, 120, 87, 0.08);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  position: relative;
+}
+.official-stamp::before,
+.official-stamp::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.35;
+}
+.official-stamp::before { top: 32px; }
+.official-stamp::after  { bottom: 32px; }
+.official-stamp .stamp-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  margin-bottom: 4px;
+  font-family: var(--font-sans);
+}
+.official-stamp .stamp-headline {
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  font-style: italic;
+}
+.official-stamp .stamp-meta {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  margin-top: 6px;
+  opacity: 0.75;
+  font-family: var(--font-sans);
+}
+.official-stamp.is-failed {
+  color: #b91c1c;
+  background: rgba(244, 63, 94, 0.04);
+  box-shadow:
+    inset 0 0 0 3px rgba(185, 28, 28, 0.15),
+    0 8px 24px rgba(185, 28, 28, 0.08);
+}
+
+/* ------------------------------------------------------------------ *
+ *  Premium Gallery — landing-page infinite marquee
+ * ------------------------------------------------------------------ */
+
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.gallery-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x linear infinite;
+  will-change: transform;
+}
+
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track {
+    animation-duration: 0s !important;
+  }
+}
+
+/* Soft fade on left/right edges so photos appear to dissolve into the navy
+ * background instead of being abruptly clipped at the viewport boundary. */
+.gallery-fade-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+          mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+.gallery-card {
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+  will-change: transform;
+}
+
+.gallery-card:hover {
+  transform: scale(1.04);
+  box-shadow:
+    0 16px 44px -10px rgba(212, 175, 55, 0.55),
+    0 0 0 1px rgba(212, 175, 55, 0.55),
+    0 0 28px -4px rgba(212, 175, 55, 0.35);
+}
+
+/* Print Styles — optimised for SKL Digital PDF export */
+@media print {
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+
+  html, body {
+    background: white !important;
+    color: #1A1A1A !important;
+  }
+
+  /* Strip the navy hero gradient + grid pattern when printing the result card */
+  .premium-hero {
+    background: white !important;
+    padding: 0 !important;
+  }
+  .premium-hero::before,
+  .premium-hero::after {
+    display: none !important;
+  }
+
+  /* Page setup — A4 portrait, generous margins */
+  @page {
+    size: A4 portrait;
+    margin: 14mm;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  /* Keep the result card from being split across pages */
+  .quantum-card,
+  .official-stamp {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

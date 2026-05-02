@@ -1,0 +1,105 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "nisn": "0091234567",
+      "name": "Andi Saputra Updated",
+      "birth_place": "Wonogiri",
+      "birth_date": "2008-05-26",
+      "class": "XII RPL 1",
+      "major": "RPL",
+      "status_graduation": 1,
+      "viewed_at": null,
+      "created_at": "2026-04-30T17:22:32.402Z",
+      "updated_at": "2026-04-30T17:22:32.484Z"
+    },
+    {
+      "id": 3,
+      "nisn": "0091234569",
+      "name": "Citra Dewi",
+      "birth_place": "Wonogiri",
+      "birth_date": "2008-03-04",
+      "class": "XII RPL 1",
+      "major": "RPL",
+      "status_graduation": 0,
+      "viewed_at": null,
+      "created_at": "2026-04-30T17:22:32.402Z",
+      "updated_at": "2026-04-30T17:22:32.402Z"
+    }
+  ],
+  "next_student_id": 4,
+  "galleries": [
+    {
+      "id": 1,
+      "image_path": "galleries/test_a830f80cb8baef11.png",
+      "title": "",
+      "created_at": "2026-04-30T17:22:45.105Z"
+    }
+  ],
+  "next_gallery_id": 2,
+  "import_archives": [
+    {
+      "id": 1,
+      "filename": "test_import.xlsx",
+      "imported": 3,
+      "failed": 0,
+      "total_after": 3,
+      "errors": [],
+      "snapshot": [
+        {
+          "id": 1,
+          "nisn": "0091234567",
+          "name": "Andi Saputra",
+          "birth_place": "Wonogiri",
+          "birth_date": "2008-05-26",
+          "class": "XII RPL 1",
+          "major": "RPL",
+          "status_graduation": 1,
+          "viewed_at": null,
+          "created_at": "2026-04-30T17:22:32.402Z",
+          "updated_at": "2026-04-30T17:22:32.402Z"
+        },
+        {
+          "id": 2,
+          "nisn": "0091234568",
+          "name": "Budi Hartono",
+          "birth_place": "Solo",
+          "birth_date": "2008-07-12",
+          "class": "XII TKJ 2",
+          "major": "TKJ",
+          "status_graduation": 1,
+          "viewed_at": null,
+          "created_at": "2026-04-30T17:22:32.402Z",
+          "updated_at": "2026-04-30T17:22:32.402Z"
+        },
+        {
+          "id": 3,
+          "nisn": "0091234569",
+          "name": "Citra Dewi",
+          "birth_place": "Wonogiri",
+          "birth_date": "2008-03-04",
+          "class": "XII RPL 1",
+          "major": "RPL",
+          "status_graduation": 0,
+          "viewed_at": null,
+          "created_at": "2026-04-30T17:22:32.402Z",
+          "updated_at": "2026-04-30T17:22:32.402Z"
+        }
+      ],
+      "created_at": "2026-04-30T17:22:32.402Z"
+    }
+  ],
+  "next_archive_id": 2,
+  "settings": {
+    "school_name": "SMK Negeri 1 Wonogiri",
+    "announcement_date": "2026-04-30",
+    "announcement_time": "00:00",
+    "maintenance_mode": "0",
+    "headline": "Pengumuman Resmi Kelulusan TA 2025/2026",
+    "school_npsn": "20311081",
+    "school_address": "Jl. Raya Wonogiri",
+    "principal_name": "Drs. Test Kepala",
+    "motivation_message": "Selamat untuk perjuangan kalian"
+  },
+  "schema_version": 1
+}

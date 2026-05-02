@@ -1,0 +1,45 @@
+Senior Full-stack Developer (Laravel, React) & UI/UX Expert
+
+Context:
+
+"Buang semua tema 'Quantum Blue' sebelumnya. Saya ingin melakukan Total Rebranding ke tema 'Premium Helpdesk' yang terinspirasi dari estetika Gambar 13. Hasil akhir harus terlihat sangat resmi, kokoh, dan jauh lebih elegan daripada contoh aslinya."
+
+1. Visual Identity & Color Palette (The JatengProv Masterclass):
+
+Primary (Background): Deep Navy Blue (#0F172A).
+
+Secondary (Gradients & Accents): Royal Blue (#1D4ED8).
+
+Text: Pure White (#FFFFFF) untuk background gelap, Deep Charcoal (#1A1A1A) untuk background putih.
+
+Accent (Countdown): Premium Gold (#D4AF37).
+
+Typography: Headline utama menggunakan font Serif (Playfair Display). Teks konten menggunakan Sans-serif (Inter/Montserrat).
+
+2. Frontend Siswa (The "Deep" Landing Page):
+
+Navbar: Deep Navy, Logo SMKN 1 Wonogiri di kiri, Tombol 'Admin Login' (Style: White Ghost Button) di kanan.
+
+Hero Section (Deep Gradient): Background gradient Navy ke Royal Blue dengan pattern geometris tipis. Headline Serif Putih: "Portal Kelulusan Online SMKN 1 Wonogiri TA 2025/2026".
+
+Integrity Pact (Modal): Pop-up tetap muncul dengan header Navy dan poin himbauan larangan konvoi/corat-coret.
+
+Search Card: Card putih bersih di tengah. Tombol 'Cek Kelulusan' (Royal Blue) dengan animasi mikro hover lift.
+
+Principal Section: Card putih minimalis di bawah form, menampilkan Foto Kepsek dan Motivasi (Kondisional: Jika Admin mengosongkan, section ini hilang).
+
+Countdown Footer: Section Navy Tua di paling bawah. Angka countdown warna Gold, label putih.
+
+3. Admin Dashboard (Integrated Professional Look):
+
+Sidebar: Deep Navy dengan highlight menu Royal Blue.
+
+Content: Semua card dan tombol 'Simpan/Import' diubah ke aksen Royal Blue. Pertahankan fitur Multi-Domain dan Login Permanen (jobenapp).
+
+4. Identity Schema & Multi-Domain (Preserved):
+
+Pastikan data: NISN, Nama, Tempat & Tgl Lahir (Sebaris), Kelas, dan Jurusan terintegrasi sempurna di kartu hasil kelulusan (Result Card). Result card menggunakan card putih dengan border Navy tipis.
+
+Atribusi:
+
+'Created by: TIM IT SKANSAGIRI | Powered by: Joben Enterprise' (Gunakan font Slate-400 yang sangat kecil di paling bawah).
